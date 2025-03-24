@@ -6,7 +6,7 @@ def load_data():
     Returns a cleaned pandas DataFrame.
     """
     # Load dataset
-    df = pd.read_csv("E:\CAI_2.0\Programming for AI\libraries\mental_health_dasboard\data\mental_health_cleaned.csv")  
+    df = pd.read_csv("E:\CAI 2.0\Programming for AI\libraries\mental_health_dasboard\data\mental_health_cleaned.csv")  
 
     # Convert column names to lowercase and replace spaces with underscores
     df.columns = df.columns.str.lower().str.replace(" ", "_")
