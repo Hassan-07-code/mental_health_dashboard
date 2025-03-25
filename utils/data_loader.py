@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 
 def load_data():
@@ -5,8 +6,16 @@ def load_data():
     Load and preprocess the mental health dataset.
     Returns a cleaned pandas DataFrame.
     """
+
+    # Use relative path to make it work on all platforms
+    csv_path = os.path.join(os.path.dirname(__file__), "..", "data", "mental_health_cleaned.csv")
+
+    # Check if the file exists before reading
+    if not os.path.exists(csv_path):
+        raise FileNotFoundError(f"CSV file not found at: {csv_path}")
+
     # Load dataset
-    df = pd.read_csv("E:\CAI 2.0\Programming for AI\libraries\mental_health_dasboard\data\mental_health_cleaned.csv")  
+    df = pd.read_csv(csv_path)  
 
     # Convert column names to lowercase and replace spaces with underscores
     df.columns = df.columns.str.lower().str.replace(" ", "_")
